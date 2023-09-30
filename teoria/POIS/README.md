@@ -14,19 +14,19 @@ classDiagram
     	+ X : double
     	+ Y : double
     	+ Nombre: string
-    	+ ToString() : string
+    	+ ToString()  string
 	}
 	class Cima {
 		+ Altura : double
-		+ ToString() : string
+		+ ToString()  string
 	}
 	class Edificio {
 		+ Direccion : string
-		+ ToString() : string
+		+ ToString()  string
 	}
 	class Poblacion {
 		+ NumHabitantes : int
-		+ ToString() : string
+		+ ToString()  string
 	}
 	
 	POI<|--Cima
@@ -35,7 +35,7 @@ classDiagram
 	
 	class Program {
 		<<static>>
-		 + Main() : void$
+		 + Main()  void$
 	}
 	
 	POIFactory<..Program
@@ -45,9 +45,9 @@ classDiagram
 	
 		class POIFactory {
 		<<static>>
-		+ CreaCima() : Cima$
-		+ CreaEdificio() : Edificio$
-		+ CreaPoblacion() : Poblacion$
+		+ CreaCima()  Cima$
+		+ CreaEdificio()  Edificio$
+		+ CreaPoblacion()  Poblacion$
 	}
 
 
