@@ -1,6 +1,38 @@
 # Apuntes C#
 
-[TOC]
+- [Apuntes C#](#apuntes-c)
+- [Propiedades](#propiedades)
+  - [Modificadores](#modificadores)
+    - [init](#init)
+    - [required](#required)
+- [Colecciones](#colecciones)
+  - [Ejemplos con listas](#ejemplos-con-listas)
+    - [Fibonacci](#fibonacci)
+    - [Lista a string](#lista-a-string)
+      - [StringBuilder](#stringbuilder)
+      - [String.join()](#stringjoin)
+  - [Tipos e interfaces de colecciones](#tipos-e-interfaces-de-colecciones)
+  - [Ejemplos vectores primitivos](#ejemplos-vectores-primitivos)
+  - [Filtrar colecciones](#filtrar-colecciones)
+    - [Where](#where)
+    - [Exists](#exists)
+- [Funciones Lambda](#funciones-lambda)
+  - [Ejemplos](#ejemplos)
+    - [Fibonacci](#fibonacci-1)
+    - [String from list](#string-from-list)
+- [XML](#xml)
+  - [Ejemplo - Fibonacci sin posición](#ejemplo---fibonacci-sin-posición)
+    - [Ejemplo - Fibonacci con posición](#ejemplo---fibonacci-con-posición)
+    - [Filtrado con Linq](#filtrado-con-linq)
+      - [Sintaxis similar a SQL](#sintaxis-similar-a-sql)
+      - [Sintaxis de filtros de listas de C#](#sintaxis-de-filtros-de-listas-de-c)
+- [Clases](#clases)
+  - [Modificadores de acceso](#modificadores-de-acceso)
+  - [Herencia](#herencia)
+    - [sealed](#sealed)
+  - [Sobrescritura de métodos](#sobrescritura-de-métodos)
+  - [Polimorfismo](#polimorfismo)
+
 
 # Propiedades
 
@@ -174,15 +206,15 @@ static string StringFromList<T>(List<T> l) string.Join(",", l);
 
 ## Tipos e interfaces de colecciones
 
-| Tipo                            | Función                                                      |
-| ------------------------------- | ------------------------------------------------------------ |
-| `IEnumerable`                   | interfaz que permite iterar sobre una estructura. Equivalente en Java a `Iterable` |
+| Tipo                            | Función                                                                                 |
+| ------------------------------- | --------------------------------------------------------------------------------------- |
+| `IEnumerable`                   | interfaz que permite iterar sobre una estructura. Equivalente en Java a `Iterable`      |
 | `IEnumerator`                   | interfaz que lleva el puntero next sobre la iteración. Equivalente en Java a `Iterator` |
-| `ICollection`                   | interfaz que tiene métodos para modificar una colección      |
-| `List` y `List<T>`              | lista                                                        |
-| `Stack` y `Stack<T>`            | pila                                                         |
-| `Queue` y `Queue<T>`            | cola                                                         |
-| `HashTable` y `Dictionary<T,U>` | tabla hash o diccionario                                     |
+| `ICollection`                   | interfaz que tiene métodos para modificar una colección                                 |
+| `List` y `List<T>`              | lista                                                                                   |
+| `Stack` y `Stack<T>`            | pila                                                                                    |
+| `Queue` y `Queue<T>`            | cola                                                                                    |
+| `HashTable` y `Dictionary<T,U>` | tabla hash o diccionario                                                                |
 
 ## Ejemplos vectores primitivos
 
@@ -452,7 +484,7 @@ public sealed class Vehiculo //...
 public class Coche : Vehiculo // sería incorrecto y marcado como error por el compilador
 ```
 
-### Sobrescritura de métodos
+## Sobrescritura de métodos
 
 Para sobrescribir un método solo hay que declarar el método en la clase derivada con la misma cabecera que la clase base añadiendo el modificador `override`.
 
@@ -481,3 +513,6 @@ public class Object
 
 Esto no debe confundirse con `abstract`, ya que los métodos `virtual` no tienen que estar en una clase abstracta y necesitan una implementación, que será ejecutada por objetos de su misma clase u objetos de clases derivadas que no sobrescriban el método.
 
+## Polimorfismo
+
+Ver ejemplo en [teoria/POIS](teoria/POIS/).
