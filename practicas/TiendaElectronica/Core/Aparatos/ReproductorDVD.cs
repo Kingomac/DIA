@@ -8,5 +8,5 @@ public class ReproductorDVD : Aparato
 
     public bool BlueRay { get; init; }
     public bool Graba => TiempoGrabacion > 0;
-    public uint TiempoGrabacion { get; init; }
+    public double TiempoGrabacion { get; init; }
 }

@@ -9,5 +9,5 @@ public abstract class Aparato
 
     public required uint NumeroSerie { get; init; }
     public required string Modelo { get; init; }
-    public required double PrecioReparacionHora { get; init; }
+    public double PrecioReparacionHora { get; }
 }

@@ -6,6 +6,6 @@ public class AdaptadorTDT : Aparato
     {
     }
 
-    public uint TiempoMaximoGrabacion { get; init; }
+    public double TiempoMaximoGrabacion { get; init; }
     public bool PuedeGrabar => TiempoMaximoGrabacion > 0;
 }

@@ -10,7 +10,7 @@ public class ReparacionSimple : Reparacion
         set
         {
             if (value > 1)
-                throw new ArgumentOutOfRangeException(
+                throw new ArgumentOutOfRangeException(nameof(HorasTrabajadas),
                     "Las reparaciones simples requieren que se haya trabajado más de 1 hora");
         }
     }
