@@ -15,7 +15,6 @@ public class ArchivoReparaciones
             var els = XElement.Load(NOMBRE_FICHERO);
             foreach (var el in els.Elements())
             {
-                Console.WriteLine("localName: " + el.Name.LocalName);
                 Reparaciones.Add(XmlReparacion.FromXml(el));
             }
         }

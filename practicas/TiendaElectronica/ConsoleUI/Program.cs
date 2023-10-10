@@ -19,7 +19,24 @@ public class Program
                     {
                         "Nueva reparación", () => archivo.Add(NuevaReaparacion())
                     },
-                    { "Ver listado", () => { } },
+                    {
+                        "Ver listado", () =>
+                        {
+                            var nombres = new Dictionary<Type, string>
+                            {
+                                { typeof(ReparacionSimple), "Reparación simple" },
+                                { typeof(ReparacionCompleja), "Reparación compleja" },
+                                { typeof(AdaptadorTDT), "Adaptador TDT" },
+                                { typeof(ReproductorDVD), "Reproductor DVD" }
+                            };
+                            foreach (var rep in archivo)
+                            {
+                                var horas = rep.HorasTrabajadas is <= 1.0 and >= 1.0 ? "" : "s";
+                                Console.WriteLine(
+                                    $"{nombres.GetValueOrDefault(rep.GetType(), rep.GetType().Name)}:\n\tCoste piezas: {rep.CostePiezas}€\n\tHoras trabajadas: {rep.HorasTrabajadas} hora{horas}\n\tDispositivo: {rep.Dispositivo}\n\t");
+                            }
+                        }
+                    },
                     {
                         "Salir", () =>
                         {

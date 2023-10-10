@@ -7,4 +7,9 @@ public class Radio : Aparato
     }
 
     public BandasRadio BandasSoportadas { get; init; }
+
+    public override string ToString()
+    {
+        return $"Radio --> {base.ToString()} | Bandas de radio soportadas: {BandasSoportadas}";
+    }
 }
