@@ -7,16 +7,25 @@ public class ConsoleMenu
 {
     public static void Run(string title, IDictionary<string, Action> options)
     {
-        int choose;
+        var choose = int.MinValue;
         int i;
         var keys = options.Keys.ToList();
+        var end = false;
         do
         {
             Console.WriteLine(title);
             for (i = 0; i < options.Count; i++) Console.WriteLine($"{i + 1}. {keys[i]}");
 
-            choose = Convert.ToInt32(Console.ReadLine());
-        } while (choose < 0 && choose > i);
+            try
+            {
+                choose = Convert.ToInt32(Console.ReadLine());
+                end = true;
+            }
+            catch (FormatException e)
+            {
+                end = false;
+            }
+        } while (!end && (choose < 0 || choose > i));
 
         options[keys[choose - 1]].Invoke();
     }
@@ -35,7 +44,6 @@ public class ConsoleMenu
 
     public static T AskForEnum<T>(string question) where T : Enum
     {
-        if (!typeof(T).IsEnum) throw new ArgumentException("El tipo debe ser un enumerado");
         var names = Enum.GetNames(typeof(T));
         int choose;
         do
@@ -44,7 +52,7 @@ public class ConsoleMenu
             for (var i = 0; i < names.Length; i++) Console.WriteLine($"{i + 1}. {names[i]}");
 
             choose = AskForNumber<int>();
-        } while (choose > 0 && choose <= names.Length);
+        } while (choose <= 0 || choose > names.Length);
 
         return (T)Enum.Parse(typeof(T), names[choose - 1], true);
     }
@@ -67,7 +75,7 @@ public class ConsoleMenu
                 isType = false;
                 result = T.Zero;
             }
-        } while (isType && result < minValue && result > maxValue);
+        } while (!isType || result < minValue || result > maxValue);
 
         return result;
     }

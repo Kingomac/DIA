@@ -14,7 +14,7 @@ Requisitos:
 - Reparación:
   - Precio base: 10€
   - Coste piezas
-  - Simple (<= 1 hora): $horas trabajadas * precio hora$
-  - Complejo (> 1 hora): $horas trabajadas * precio hora * 1.25$
+  - Simple (<= 1 hora): $horas\ trabajadas · precio\ hora$
+  - Complejo (> 1 hora): $horas\ trabajadas · precio\ hora · 1.25$
 - Archivo de reparaciones:
   - Guardar/Cargar de `reparaciones.xml`

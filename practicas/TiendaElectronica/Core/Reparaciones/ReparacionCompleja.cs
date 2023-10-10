@@ -10,7 +10,7 @@ public class ReparacionCompleja : Reparacion
         get => _horasTrabajadas;
         set
         {
-            if (value >= 1)
+            if (value <= 1)
                 throw new ArgumentOutOfRangeException(nameof(HorasTrabajadas),
                     "Una reparación compleja debe durar más de 1 hora");
             _horasTrabajadas = value;

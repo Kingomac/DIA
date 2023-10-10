@@ -10,7 +10,8 @@ public class Program
     public static void Main(string[] args)
     {
         var archivo = new ArchivoReparaciones();
-        while (true)
+        var seguir = true;
+        while (seguir)
             ConsoleMenu.Run(
                 "Selecciona una acción:",
                 new Dictionary<string, Action>
@@ -19,7 +20,13 @@ public class Program
                         "Nueva reparación", () => archivo.Add(NuevaReaparacion())
                     },
                     { "Ver listado", () => { } },
-                    { "Salir", () => Environment.Exit(0) }
+                    {
+                        "Salir", () =>
+                        {
+                            archivo.GuardarFichero();
+                            seguir = false;
+                        }
+                    }
                 }
             );
     }
@@ -56,6 +63,14 @@ public class Program
                     Modelo = modelo,
                     BlueRay = ConsoleMenu.AskForBool("Soporta Blue-Ray?"),
                     TiempoGrabacion = ConsoleMenu.AskForNumber<double>("Tiempo grabación")
+                }
+            },
+            {
+                "Adaptador TDT", () => aparato = new AdaptadorTDT
+                {
+                    NumeroSerie = numeroSerie,
+                    Modelo = modelo,
+                    TiempoMaximoGrabacion = ConsoleMenu.AskForNumber<double>("Tiempo máximo de grabación")
                 }
             }
         });

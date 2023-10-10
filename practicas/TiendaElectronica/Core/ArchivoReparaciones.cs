@@ -5,37 +5,37 @@ namespace TiendaElectronica.Core;
 
 public class ArchivoReparaciones
 {
-    private List<Reparacion> Reparaciones { get; }
     private const string NOMBRE_FICHERO = "reparaciones.xml";
 
     public ArchivoReparaciones()
     {
-        this.Reparaciones = new List<Reparacion>();
+        Reparaciones = new List<Reparacion>();
         if (File.Exists(NOMBRE_FICHERO))
         {
             var els = XElement.Load(NOMBRE_FICHERO);
+            foreach (var el in els.Elements()) Console.WriteLine("localName: " + el.Name.LocalName);
         }
     }
 
+    private List<Reparacion> Reparaciones { get; }
+
     public void GuardarFichero()
     {
-        var padreReps = new XElement("lista-reparaciones");
+        var padreReps = new XElement("ListaReparaciones");
         foreach (var rep in Reparaciones)
-        {
-            padreReps.Add($"rep-{rep.GetType().Name.ToLower()}", rep);
-        }
+            padreReps.Add(XmlReparacion.ToXml(rep));
+
+        var stream = File.Open("reparaciones.xml", FileMode.Create, FileAccess.Write);
+        padreReps.Save(stream);
     }
 
     public void Add(Reparacion rep)
     {
-        this.Reparaciones.Add(rep);
+        Reparaciones.Add(rep);
     }
 
     public IEnumerator<Reparacion> GetEnumerator()
     {
-        return this.Reparaciones.GetEnumerator();
+        return Reparaciones.GetEnumerator();
     }
-    
-    
-    
 }
