@@ -13,4 +13,13 @@ public class XmlReparacion
         result.Add(XmlAparato.ToXml(rep.Dispositivo));
         return result;
     }
+
+    public static Reparacion FromXml(XElement el)
+    {
+        var horasTrabajadas = Convert.ToDouble(el.Attribute(nameof(Reparacion.HorasTrabajadas)).Value);
+        var costePiezas = Convert.ToDouble(el.Attribute(nameof(Reparacion.CostePiezas)).Value);
+        var elDispositivo = el.Elements().First();
+        var dispositivo = XmlAparato.FromXml(elDispositivo);
+        return Reparacion.Create(dispositivo, horasTrabajadas, costePiezas);
+    }
 }
