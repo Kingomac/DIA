@@ -1,0 +1,31 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+        x:Class="ColeccionCoches.UI.MainWindow"
+        Width="600" Height="250"
+        MinWidth="600" MinHeight="250"
+        Title="ColeccionCoches">
+    <DockPanel Margin="20">
+        <Label DockPanel.Dock="Bottom" Name="StLine" Content="Coches: 0 | Posición: 0" />
+        <DockPanel Margin="20">
+            <StackPanel DockPanel.Dock="Left">
+                <Button Name="BtSiguiente" Content="Siguiente" HorizontalAlignment="Stretch" HorizontalContentAlignment="Center" Margin="5"/>
+                <Button Name="BtAnterior" Content="Anterior" HorizontalAlignment="Stretch" HorizontalContentAlignment="Center" Margin="5"/>
+                <Button Name="BtInserta" Content="Inserta" HorizontalAlignment="Stretch" HorizontalContentAlignment="Center" Margin="5"/>
+                <Button Name="BtModifica" Content="Modifica" HorizontalAlignment="Stretch" HorizontalContentAlignment="Center" Margin="5"/>
+            </StackPanel>
+            <StackPanel DockPanel.Dock="Right" VerticalAlignment="Center">
+                <DockPanel Margin="5">
+                    <Label DockPanel.Dock="Left" Content="Modelo"/>
+                    <TextBox DockPanel.Dock="Right" Name="EdModelo"/>
+                </DockPanel>
+                <DockPanel Margin="5">
+                    <Label DockPanel.Dock="Left" Content="Color"/>
+                    <TextBox DockPanel.Dock="Right" Name="EdColor"/>
+                </DockPanel>
+            </StackPanel>
+        </DockPanel>
+    </DockPanel>
+</Window>
