@@ -15,4 +15,9 @@ public class ReparacionSimple : Reparacion
             _horasTrabajadas = value;
         }
     }
+
+    public override string ToString()
+    {
+        return $"Reparación simple: {base.ToString()}";
+    }
 }

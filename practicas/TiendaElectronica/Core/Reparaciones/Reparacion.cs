@@ -39,4 +39,9 @@ public abstract class Reparacion
             };
         }
     }
+
+    public override string ToString()
+    {
+        return Dispositivo.ToString();
+    }
 }

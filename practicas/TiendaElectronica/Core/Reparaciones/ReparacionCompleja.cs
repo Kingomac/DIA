@@ -16,4 +16,9 @@ public class ReparacionCompleja : Reparacion
             _horasTrabajadas = value;
         }
     }
+
+    public override string ToString()
+    {
+        return $"Reparación compleja: {base.ToString()}";
+    }
 }
