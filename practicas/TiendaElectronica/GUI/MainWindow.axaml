@@ -2,12 +2,14 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:reparaciones="clr-namespace:TiendaElectronica.Core.Reparaciones;assembly=Core"
         mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
         x:Class="GUI.MainWindow"
         Title="GUI"
         Loaded="Control_OnLoaded"
         MinHeight="300"
-        MinWidth="300">
+        MinWidth="300"
+        x:CompileBindings="True">
     <DockPanel>
         <StackPanel DockPanel.Dock="Left" Classes="leftpanel">
             <StackPanel.Styles>
@@ -17,8 +19,13 @@
             </StackPanel.Styles>
             <Label HorizontalAlignment="Center">Reparaciones</Label>
             <Button HorizontalAlignment="Stretch" HorizontalContentAlignment="Center">Añadir</Button>
-            <ListBox Name="AparatosList" SelectionChanged="AparatosList_OnSelectionChanged">
-                <ListBoxItem>uwuwuwu</ListBoxItem>
+            <ListBox Name="AparatosList" SelectionChanged="AparatosList_OnSelectionChanged"
+                     SelectionMode="AlwaysSelected,Single">
+                <ListBox.ItemTemplate>
+                    <DataTemplate DataType="reparaciones:Reparacion">
+                        <TextBlock Text="{Binding}" />
+                    </DataTemplate>
+                </ListBox.ItemTemplate>
             </ListBox>
         </StackPanel>
         <DockPanel DockPanel.Dock="Right">
@@ -47,8 +54,8 @@
                                 <Label Grid.Row="2">Coste piezas</Label>
                             </Grid>
                             <Grid RowDefinitions="35,10,35" Grid.Column="1">
-                                <TextBox Grid.Row="0">aaa</TextBox>
-                                <TextBox Grid.Row="2">aaaa</TextBox>
+                                <TextBox Name="HorasTrabajadasTxt" Grid.Row="0">aaa</TextBox>
+                                <TextBox Name="CostePiezasTxt" Grid.Row="2">aaaa</TextBox>
                             </Grid>
                         </Grid>
                     </Border>
@@ -70,9 +77,9 @@
                                 </Label>
                             </Grid>
                             <Grid Grid.Column="1" RowDefinitions="35,10,35,10,35">
-                                <TextBox Grid.Row="0">aaa</TextBox>
-                                <TextBox Grid.Row="2">aaa</TextBox>
-                                <TextBox Grid.Row="4" IsReadOnly="True">aaa</TextBox>
+                                <TextBox Name="NumeroSerieTxt" Grid.Row="0">aaa</TextBox>
+                                <TextBox Name="ModeloTxt" Grid.Row="2">aaa</TextBox>
+                                <TextBox Name="PrecioReparacionHoraTxt" Grid.Row="4" IsReadOnly="True">aaa</TextBox>
                             </Grid>
                         </Grid>
                     </Border>

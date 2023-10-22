@@ -1,3 +1,4 @@
+using System.Diagnostics;
 using Avalonia.Controls;
 using Avalonia.Interactivity;
 using TiendaElectronica.Core;
@@ -16,14 +17,17 @@ public partial class MainWindow : Window
 
     private void Control_OnLoaded(object? sender, RoutedEventArgs e)
     {
-        foreach (var rep in ArchivoReparaciones)
-        {
-            var tipoReparacion = rep.GetType().Name[nameof(Reparacion).Length..];
-            AparatosList.Items.Add($"{tipoReparacion}: {rep.Dispositivo.NumeroSerie} - {rep.Dispositivo.Modelo}");
-        }
+        AparatosList.ItemsSource = ArchivoReparaciones;
     }
 
     private void AparatosList_OnSelectionChanged(object? sender, SelectionChangedEventArgs e)
     {
+        var rep = (Reparacion)e.AddedItems[0];
+        if (rep == null) Debug.WriteLine("rep is null on selectionChanged");
+        HorasTrabajadasTxt.Text = rep.HorasTrabajadas.ToString();
+        CostePiezasTxt.Text = rep.CostePiezas.ToString();
+        NumeroSerieTxt.Text = rep.Dispositivo.NumeroSerie.ToString();
+        ModeloTxt.Text = rep.Dispositivo.Modelo;
+        PrecioReparacionHoraTxt.Text = rep.Dispositivo.PrecioReparacionHora.ToString();
     }
 }
