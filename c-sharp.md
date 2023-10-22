@@ -99,7 +99,7 @@ public class Pokemon
 
 ### init
 
-Palabra clave que define un método de incialización de de una propiedad, de forma, que cuando defines el objeto puedes indicar el valor de la propiedad.
+Palabra clave que define un método de incialización de de una propiedad, de forma, que cuando defines el objeto puedes indicar el valor de la propiedad. Esta propiedad sustituye a `set;` y solo permite asignar su valor en la inicialización.
 
 ```c#
 public class Pokemon
@@ -142,6 +142,12 @@ public class Pokemon
 //var a = new Pokemon(25);
 var b = new Pokemon(25) { Nombre = "Pikachu"};
 ```
+
+### private
+
+Los getters y setters de las propiedades pueden ser privados. Sin embargo, solo uno de los dos puede serlo,  getter o setter.
+
+
 
 
 
@@ -206,15 +212,15 @@ static string StringFromList<T>(List<T> l) string.Join(",", l);
 
 ## Tipos e interfaces de colecciones
 
-| Tipo                            | Función                                                                                 |
-| ------------------------------- | --------------------------------------------------------------------------------------- |
-| `IEnumerable`                   | interfaz que permite iterar sobre una estructura. Equivalente en Java a `Iterable`      |
-| `IEnumerator`                   | interfaz que lleva el puntero next sobre la iteración. Equivalente en Java a `Iterator` |
-| `ICollection`                   | interfaz que tiene métodos para modificar una colección                                 |
-| `List` y `List<T>`              | lista                                                                                   |
-| `Stack` y `Stack<T>`            | pila                                                                                    |
-| `Queue` y `Queue<T>`            | cola                                                                                    |
-| `HashTable` y `Dictionary<T,U>` | tabla hash o diccionario                                                                |
+| Tipo                            | Función                                                      |
+| ------------------------------- | ------------------------------------------------------------ |
+| `IEnumerable`                   | Interfaz que permite iterar sobre una estructura. Equivalente en Java a `Iterable` |
+| `IEnumerator`                   | Interfaz que lleva el puntero next sobre la iteración. Equivalente en Java a `Iterator` |
+| `ICollection`                   | Interfaz que tiene métodos para modificar una colección      |
+| `List` y `List<T>`              | Lista                                                        |
+| `Stack` y `Stack<T>`            | Pila                                                         |
+| `Queue` y `Queue<T>`            | Cola                                                         |
+| `HashTable` y `Dictionary<T,U>` | Tabla hash o diccionario                                     |
 
 ## Ejemplos vectores primitivos
 
@@ -257,8 +263,6 @@ else
     Console.WriteLine("fibos30 no tiene el sentido de la vida);
 }
 ```
-
-
 
 
 
@@ -483,6 +487,37 @@ Si quieres que una clase no pueda tener clases heredadas debes añadirle el modi
 public sealed class Vehiculo //...
 public class Coche : Vehiculo // sería incorrecto y marcado como error por el compilador
 ```
+
+### partial
+
+Es posible definir una clase en varios ficheros usando la directiva `partial`, por ejemplo:
+
+`fichero1.cs`
+
+```c#
+partial class Cat {
+    public void Miau() { Console.WriteLine("miau"); }
+}
+```
+
+`fichero2.cs`
+
+```c#
+partial class Cat : Animal {
+    public void Scratch() { Console.WriteLine("scratch sofa"); }
+}
+```
+
+Esto sería equivalente a:
+
+```c#
+partial class Cat : Animal {
+    public void Miau() { Console.WriteLine("miau"); }
+    public void Scratch() { Console.WriteLine("scratch sofa"); }
+}
+```
+
+
 
 ## Sobrescritura de métodos
 
