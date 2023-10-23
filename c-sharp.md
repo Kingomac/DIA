@@ -270,6 +270,10 @@ else
 
 Son funciones que se declaran como variables y permiten programar con un paradigma funcional en C#.
 
+## Tipos
+
+Hay 2 tipos de funciones lambda, `Action` y `Func<T>`, estas se diferencian en que `Action` es para lambdas que no devuelven ningún valor y `Func<T>` devuelve una variable de tipo `T`.
+
 ## Ejemplos
 
 ### Fibonacci
