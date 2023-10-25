@@ -30,4 +30,10 @@ public partial class MainWindow : Window
         ModeloTxt.Text = rep.Dispositivo.Modelo;
         PrecioReparacionHoraTxt.Text = rep.Dispositivo.PrecioReparacionHora.ToString();
     }
+
+    private async void AddBtn_OnClick(object? sender, RoutedEventArgs e)
+    {
+        Window addWindow = new AddWindow();
+        await addWindow.ShowDialog(this);
+    }
 }

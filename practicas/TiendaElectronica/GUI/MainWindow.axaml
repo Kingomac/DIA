@@ -18,12 +18,15 @@
                 </Style>
             </StackPanel.Styles>
             <Label HorizontalAlignment="Center">Reparaciones</Label>
-            <Button HorizontalAlignment="Stretch" HorizontalContentAlignment="Center">Añadir</Button>
             <ListBox Name="AparatosList" SelectionChanged="AparatosList_OnSelectionChanged"
                      SelectionMode="AlwaysSelected,Single">
                 <ListBox.ItemTemplate>
                     <DataTemplate DataType="reparaciones:Reparacion">
-                        <TextBlock Text="{Binding}" />
+                        <Grid ColumnDefinitions="*,10,*">
+                            <TextBlock Grid.Column="0" Text="{Binding Dispositivo.NumeroSerie}" />
+                            <TextBlock Grid.Column="1" Text="-" />
+                            <TextBlock Grid.Column="2" Text="{Binding Dispositivo.Modelo}" />
+                        </Grid>
                     </DataTemplate>
                 </ListBox.ItemTemplate>
             </ListBox>
@@ -38,6 +41,7 @@
                 </StackPanel.Styles>
                 <Button>Borrar</Button>
                 <Button>Modificar</Button>
+                <Button Name="AddBtn" Click="AddBtn_OnClick">Añadir</Button>
             </StackPanel>
             <ScrollViewer Classes="rightpanel">
                 <ScrollViewer.Styles>
@@ -50,8 +54,8 @@
                     <Border BorderBrush="Black" BorderThickness="2" CornerRadius="3" Padding="4" Margin="3 0 3 3">
                         <Grid ColumnDefinitions="Auto,100*" Margin="10">
                             <Grid RowDefinitions="35,10,35" Grid.Column="0">
-                                <Label Grid.Row="0">Horas trabajadas</Label>
-                                <Label Grid.Row="2">Coste piezas</Label>
+                                <Label HorizontalAlignment="Right" Grid.Row="0">Horas trabajadas</Label>
+                                <Label HorizontalAlignment="Right" Grid.Row="2">Coste piezas</Label>
                             </Grid>
                             <Grid RowDefinitions="35,10,35" Grid.Column="1">
                                 <TextBox Name="HorasTrabajadasTxt" Grid.Row="0">aaa</TextBox>

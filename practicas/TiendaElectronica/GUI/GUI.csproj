@@ -22,4 +22,11 @@
     <ItemGroup>
         <ProjectReference Include="..\Core\Core.csproj"/>
     </ItemGroup>
+
+
+    <ItemGroup>
+        <Compile Update="AddWindow.axaml.cs">
+            <DependentUpon>AddWindow.axaml</DependentUpon>
+        </Compile>
+    </ItemGroup>
 </Project>
