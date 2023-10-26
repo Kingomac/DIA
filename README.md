@@ -3,6 +3,11 @@
 - [Apuntes C#](c-sharp.md)
 - [Prácticas](practicas/)
 
+# Enlaces de interés
+
+- [Ejercicios y ejemplos en Ideone](https://ideone.com/baltasarq/dia)
+- [Plantilla de examen](https://github.com/Baltasarq/ExamenDIA)
+
 # Clase 0: Cómo instalar .NET y JetBrains Rider (modo usuario)
 
 ## Linux
