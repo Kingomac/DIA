@@ -2,6 +2,7 @@
 
 - [Apuntes C#](c-sharp.md)
 - [Prácticas](practicas/)
+- [Notas examen parcial 1](notas-examen1.md)
 
 # Enlaces de interés
 
