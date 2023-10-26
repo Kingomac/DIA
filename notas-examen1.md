@@ -63,9 +63,9 @@ public Carrera(IEnumerable<Bolido> bolidos) : this() {
 
 En clase lo hizo distinto al ejemplo, guardó todo en atributos en vez de hacer una etiqueta para cada propiedad de la clase `Carrera`, pero que usando XML de Linq es lo mismo, solo que en vez de pasar `XElement` pasas `XAttribute`.
 
-En el código de recuperar cambia que hace la selección de elementos `<bolido>` sobre la query de recuperar el elemento raíz `<carrera>`, si no se hiciese funcionaría igual, como en el ejemplo porque al hacer `raiz.Elements("bolido")` busca todos los elementos `<bolido>` en sus elementos hijos.
+> En el código de recuperar cambia que hace la selección de elementos `<bolido>` sobre la query de recuperar el elemento raíz `<carrera>`, si no se hiciese funcionaría igual, como en el ejemplo porque al hacer `raiz.Elements("bolido")` busca todos los elementos `<bolido>` en sus elementos hijos.
 
-
+**Corrección al respecto**: realmente solo hay que hacer `XElement.Load("fichero.xml")` y no hay que especificar el nombre de la etiqueta raíz con un `.Element("raiz")`, en este caso `<carrera>` porque se supone que es un fichero XML válido y entonces, debe cumplir que tiene un único elemento raíz, que sería el que devuelve ese método. [XML Validator](https://www.w3schools.com/xml/xml_validator.asp)
 
 Importante: no hacer `XElement.ToString()` porque esto devolvería la etiqueta completa en XML como `<bolido piloto="Alonso" .. />` en lugar del valor deseado. Para ello seguir el patrón:
 
