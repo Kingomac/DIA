@@ -29,4 +29,9 @@
             <DependentUpon>AddWindow.axaml</DependentUpon>
         </Compile>
     </ItemGroup>
+
+
+    <ItemGroup>
+        <None Remove="AddDatosDispositivoGeneral.axaml.cs~"/>
+    </ItemGroup>
 </Project>
