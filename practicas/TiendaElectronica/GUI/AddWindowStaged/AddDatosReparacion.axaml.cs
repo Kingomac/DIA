@@ -1,4 +1,4 @@
-namespace GUI;
+namespace GUI.AddWindowStaged;
 
 public partial class AddDatosReparacion : ValidableUserControl
 {
@@ -8,7 +8,7 @@ public partial class AddDatosReparacion : ValidableUserControl
     }
 
     public override bool Validated =>
-        double.TryParse(HorasTrabajadasTxt.Text, out _) && double.TryParse(CostePiezasTxt.Text, out _);
+        double.TryParse(HorasTrabajadasTxt.Text, out _) && double.TryParse((string?)CostePiezasTxt.Text, out _);
 
     public override void HighlightErrors()
     {

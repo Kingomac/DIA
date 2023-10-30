@@ -1,6 +1,7 @@
 using System.Diagnostics;
 using Avalonia.Controls;
 using Avalonia.Interactivity;
+using GUI.AddWindowStaged;
 using TiendaElectronica.Core;
 using TiendaElectronica.Core.Reparaciones;
 

@@ -1,4 +1,4 @@
-namespace GUI;
+namespace GUI.AddWindowStaged;
 
 public partial class AddDatosAparatoGeneral : ValidableUserControl
 {

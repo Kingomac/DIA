@@ -25,8 +25,21 @@
 
 
     <ItemGroup>
-        <Compile Update="AddWindow.axaml.cs">
+        <Compile Update="AddWindow\AddDatosAparatoGeneral.axaml.cs">
+            <DependentUpon>AddDatosAparatoGeneral.axaml</DependentUpon>
+            <SubType>Code</SubType>
+        </Compile>
+        <Compile Update="AddWindow\AddDatosReparacion.axaml.cs">
+            <DependentUpon>AddDatosReparacion.axaml</DependentUpon>
+            <SubType>Code</SubType>
+        </Compile>
+        <Compile Update="AddWindow\AddSelecTipo.axaml.cs">
+            <DependentUpon>AddSelecTipo.axaml</DependentUpon>
+            <SubType>Code</SubType>
+        </Compile>
+        <Compile Update="AddWindow\AddWindow.axaml.cs">
             <DependentUpon>AddWindow.axaml</DependentUpon>
+            <SubType>Code</SubType>
         </Compile>
     </ItemGroup>
 
